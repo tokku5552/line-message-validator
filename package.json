@@ -7,7 +7,8 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export -o extensions/dist"
+    "export": "next build && next export -o extensions/dist",
+    "test": "jest"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.4",
@@ -27,7 +28,10 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.206",
+    "@types/jest": "^29.5.2",
     "axios": "^1.2.1",
-    "react-hook-form": "^7.41.0"
+    "jest": "^29.5.0",
+    "react-hook-form": "^7.41.0",
+    "ts-jest": "^29.1.0"
   }
 }
