@@ -9,5 +9,41 @@
   ],
   "major": {
     "enabled": false
-  }
+  },
+  "packageRules": [
+    {
+      "groupName": "linters",
+      "extends": [
+        "packages:linters"
+      ],
+      "packageNames": [
+        "prettier"
+      ],
+      "packagePatterns": [
+        "^@typescript-eslint/"
+      ]
+    },
+    {
+      "groupName": "jest",
+      "matchPackageNames": [
+        "jest",
+        "ts-jest"
+      ],
+      "matchPackagePrefixes": [
+        "jest-"
+      ]
+    },
+    {
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ],
+      "matchPackagePrefixes": [
+        "react-"
+      ]
+    }
+  ]
 }
