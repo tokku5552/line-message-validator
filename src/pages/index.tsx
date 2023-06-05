@@ -5,13 +5,13 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Heading,
   Input,
   Textarea,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { validator } from "../api/validator";
+import Header from "../components/Header";
 import { FormData } from "../types";
 
 const placeholder = `
@@ -58,11 +58,7 @@ export default function Home() {
   return (
     <>
       <Box w="540px">
-        <Box bg="#4299E1" w="100%" p={4} color="white">
-          <Heading as="h3" size="xl" isTruncated>
-            LINE Message Validator
-          </Heading>
-        </Box>
+        <Header />
         <form onSubmit={onSubmit}>
           <FormControl isInvalid={!!errors.body || !!errors.token} isRequired>
             <FormLabel>channel access token</FormLabel>
