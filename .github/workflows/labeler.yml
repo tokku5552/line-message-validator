@@ -1,7 +1,6 @@
 name: labeler
 on:
   pull_request:
-    types: [opened]
 
 jobs:
   label:
