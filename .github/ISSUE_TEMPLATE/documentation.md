@@ -1,8 +1,8 @@
 ---
-name: Feature request
+name: Documentatioin
 about: Suggest an idea for this project
-title: "[Feature]"
-labels: "enhancement"
+title: "[Documentation]"
+labels: "documentation"
 assignees: ""
 ---
 
