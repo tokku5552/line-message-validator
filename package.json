@@ -35,5 +35,8 @@
     "jest-environment-jsdom": "^29.5.0",
     "react-hook-form": "^7.41.0",
     "ts-jest": "^29.1.0"
+  },
+  "resolutions": {
+    "semver": "^7.5.2"
   }
 }
