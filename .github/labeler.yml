@@ -1,0 +1,22 @@
+cicd:
+  - github/workflows/**/*
+code:
+  - src/**/*
+  - package.json
+  - yarn.lock
+config:
+  - .vscode/**/*
+  - extensions/manifest.json
+  - .eslintrc.json
+  - .gitignore
+  - jest.config.js
+  - next.config.js
+  - renovate.json
+  - tsconfig.json
+public:
+  - public/**/*
+documentation:
+  - README.md
+dependencies:
+  - package.json
+  - yarn.lock
