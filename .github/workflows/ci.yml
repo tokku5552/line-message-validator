@@ -4,6 +4,17 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - src/**
+      - extensions/**
+      - package.json
+      - yarn.lock
+      - public/**
+      - jest.config.js
+      - .eslintrc.json
+      - next.config.js
+      - tsconfig.json
+      - .github/workflows/ci.yml
 jobs:
   prepare:
     runs-on: ubuntu-latest
