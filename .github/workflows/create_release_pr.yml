@@ -15,7 +15,7 @@ jobs:
 
       - name: Set current datetime as env variable
         env:
-          TZ: 'Asia/Tokyo'
+          TZ: "Asia/Tokyo"
         run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Create Branch
@@ -24,9 +24,14 @@ jobs:
       - name: Push Branch
         run: git push origin release/gha_${{ env.CURRENT_DATETIME }}
 
+      - name: Install Hub
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hub
+
       - name: Create Pull Request
         env:
-          REVIEWERS: 'tokku5552'
+          REVIEWERS: "tokku5552"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: release/gha_${{ env.CURRENT_DATETIME }}
         run: |
