@@ -15,7 +15,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@next/font": "13.5.7",
-    "@types/node": "18.19.50",
+    "@types/node": "18.19.53",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
     "eslint": "8.57.1",
