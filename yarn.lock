@@ -1239,10 +1239,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/chrome@^0.0.279":
-  version "0.0.279"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.279.tgz#18d902ba8bb2c23bc003484322901c6873ccfc64"
-  integrity sha512-wl0IxQ2OQiMazPZM5LimHQ7Jwd72/O8UvvzyptplXT2S4eUqXH5C0n8S+v8PtKhyX89p0igCPpNy3Bwksyk57g==
+"@types/chrome@^0.0.280":
+  version "0.0.280"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.280.tgz#7ef46940c1aa78947508c2371993a301df8c4115"
+  integrity sha512-AotSmZrL9bcZDDmSI1D9dE7PGbhOur5L0cKxXd7IqbVizQWCY4gcvupPUVsQ4FfDj3V2tt/iOpomT9EY0s+w1g==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -1336,10 +1336,10 @@
   dependencies:
     undici-types "~6.19.2"
 
-"@types/node@18.19.62":
-  version "18.19.62"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.62.tgz#7f72e51bbee9d34a91b04faa1c5d098617410b48"
-  integrity sha512-UOGhw+yZV/icyM0qohQVh3ktpY40Sp7tdTW7HxG3pTd7AiMrlFlAJNUrGK9t5mdW0+ViQcFV74zCSIx9ZJpncA==
+"@types/node@18.19.64":
+  version "18.19.64"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.64.tgz#122897fb79f2a9ec9c979bded01c11461b2b1478"
+  integrity sha512-955mDqvO2vFf/oL7V3WiUtiz+BugyX8uVbaT2H8oj3+8dRyH2FLiNdowe7eNqRM7IOIZvzDH76EoAT+gwm6aIQ==
   dependencies:
     undici-types "~5.26.4"
 
