@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
-    "@types/chrome": "^0.0.315",
+    "@types/chrome": "^0.0.317",
     "@types/jest": "^29.5.2",
-    "axios": "1.8.4",
+    "axios": "1.9.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "react-hook-form": "^7.41.0",
