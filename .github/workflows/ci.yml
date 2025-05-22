@@ -85,7 +85,7 @@ jobs:
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: build
         run: |
-          yarn export
+          yarn build
       - name: Update manifest.json
         run: |
           npx dot-json@1 extensions/manifest.json version dummy
