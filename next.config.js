@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   assetPrefix: "./",
+  distDir: "extensions/dist",
+  output: "export",
 };
 
 module.exports = nextConfig;
