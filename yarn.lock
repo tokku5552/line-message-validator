@@ -1330,10 +1330,10 @@
   dependencies:
     undici-types "~6.21.0"
 
-"@types/node@18.19.105":
-  version "18.19.105"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.105.tgz#44bae77ea9832da4357e1d35df37cb86927e1405"
-  integrity sha512-a+DrwD2VyzqQR2W0EVF8EaCh6Em4ilQAYLEPZnMNkQHXR7ziWW7RUhZMWZAgRpkDDAdUIcJOXSPJT/zBEwz3sA==
+"@types/node@18.19.110":
+  version "18.19.110"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.110.tgz#33e25fa1796ba5023cee137f24f15d332d2d45d1"
+  integrity sha512-WW2o4gTmREtSnqKty9nhqF/vA0GKd0V/rbC0OyjSk9Bz6bzlsXKT+i7WDdS/a0z74rfT2PO4dArVCSnapNLA5Q==
   dependencies:
     undici-types "~5.26.4"
 
