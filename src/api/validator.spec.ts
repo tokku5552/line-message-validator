@@ -9,7 +9,7 @@ describe("validator", () => {
     axiosMock.post.mockResolvedValue({});
     await validator(
       "token",
-      "body",
+      {},
       () => {
         expect(true).toBe(true);
       },

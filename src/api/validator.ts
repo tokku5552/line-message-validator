@@ -3,7 +3,7 @@ import { ValidateError } from "../types";
 
 export const validator = async (
   token: string,
-  body: string,
+  body: unknown,
   success: (response: AxiosResponse) => void,
   invalid: (validateError: ValidateError) => void,
   error: (reason: any) => void
