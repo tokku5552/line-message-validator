@@ -11,7 +11,8 @@ export default function Home() {
   const { register, setValue, handleSubmit, formState } = useForm<FormData>();
 
   const onSubmit = handleSubmit(async (data) => {
-    await chrome.storage.local.set(data);
+    await chrome.storage.local.set({ body: data.body });
+    await chrome.storage.session.set({ token: data.token });
     await validator(
       data.token,
       JSON.parse(data.body),
@@ -22,11 +23,13 @@ export default function Home() {
   });
 
   useEffect(() => {
-    chrome.storage.local.get(["token", "body"], (items) => {
-      const data = items as FormData;
-      const body = data && data.body ? data.body : placeholder;
-      setValue("token", data.token);
+    chrome.storage.local.remove("token");
+    chrome.storage.local.get(["body"], (items) => {
+      const body = items && items.body ? items.body : placeholder;
       setValue("body", body);
+    });
+    chrome.storage.session.get(["token"], (items) => {
+      if (items.token) setValue("token", items.token);
     });
   }, [setValue]);
 
