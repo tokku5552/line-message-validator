@@ -14,7 +14,7 @@ export default function Home() {
     await chrome.storage.local.set(data);
     await validator(
       data.token,
-      JSON.parse(data.body),
+      JSON.parse(data.body) as unknown,
       () => setResult("Success!"),
       (validateError) => setResult(JSON.stringify(validateError, null, 2)),
       (_) => setResult("unknown error")
