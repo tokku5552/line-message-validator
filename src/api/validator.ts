@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { ValidateError } from "../types";
+import { logger } from "@/logger";
 
 export const validator = async (
   token: string,
@@ -8,7 +9,11 @@ export const validator = async (
   invalid: (validateError: ValidateError) => void,
   error: (reason: any) => void
 ) => {
-  console.log(`validator token=${token},body=${JSON.stringify(body)}`);
+  const maskToken = (t: string) =>
+    t ? `${t.slice(0, 4)}****${t.slice(-4)}` : "";
+  logger.debug(
+    `validator token=${maskToken(token)},body=${JSON.stringify(body)}`
+  );
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -21,7 +26,7 @@ export const validator = async (
       success(response);
     })
     .catch((reason) => {
-      console.log(reason);
+      logger.error(reason);
       if (!!reason && !!reason.response && !!reason.response.data) {
         const validateError: ValidateError = reason.response.data;
         invalid(validateError);
