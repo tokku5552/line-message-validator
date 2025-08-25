@@ -12,9 +12,16 @@ export default function Home() {
 
   const onSubmit = handleSubmit(async (data) => {
     await chrome.storage.local.set(data);
+    let body;
+    try {
+      body = JSON.parse(data.body);
+    } catch (error) {
+      setResult(error instanceof Error ? error.message : String(error));
+      return;
+    }
     await validator(
       data.token,
-      JSON.parse(data.body),
+      body,
       () => setResult("Success!"),
       (validateError) => setResult(JSON.stringify(validateError, null, 2)),
       (_) => setResult("unknown error")
