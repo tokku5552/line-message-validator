@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ValidateError } from "../types";
 import { validator } from "./validator";
 
 jest.mock("axios");
@@ -18,6 +19,47 @@ describe("validator", () => {
       },
       () => {
         expect(true).toBe(false);
+      }
+    );
+  });
+
+  test("validation error", async () => {
+    expect.assertions(1);
+    const validateError: ValidateError = {
+      message: "invalid",
+      details: [{ message: "detail", property: "prop" }],
+    };
+    axiosMock.post.mockRejectedValue({ response: { data: validateError } });
+    await validator(
+      "token",
+      "body",
+      () => {
+        expect(true).toBe(false);
+      },
+      (error) => {
+        expect(error).toBe(validateError);
+      },
+      () => {
+        expect(true).toBe(false);
+      }
+    );
+  });
+
+  test("network error", async () => {
+    expect.assertions(1);
+    const networkError = new Error("network error");
+    axiosMock.post.mockRejectedValue(networkError);
+    await validator(
+      "token",
+      "body",
+      () => {
+        expect(true).toBe(false);
+      },
+      () => {
+        expect(true).toBe(false);
+      },
+      (error) => {
+        expect(error).toBe(networkError);
       }
     );
   });
