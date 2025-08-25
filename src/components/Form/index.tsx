@@ -46,8 +46,8 @@ export default function Form({
           {!!errors.body && "messages(JSON) is required"}
         </FormErrorMessage>
       </FormControl>
-      <FormLabel>result</FormLabel>
-      <Textarea value={result} h="100" />
+      <FormLabel>result (read-only)</FormLabel>
+      <Textarea value={result} h="100" isReadOnly bg="gray.100" />
       <Button
         mt={2}
         bg="#4299E1"
