@@ -13,20 +13,22 @@ export const validator = async (
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
-  await axios
-    .post("https://api.line.me/v2/bot/message/validate/reply", body, {
-      headers: headers,
-    })
-    .then((response) => {
-      success(response);
-    })
-    .catch((reason) => {
-      console.log(reason);
-      if (!!reason && !!reason.response && !!reason.response.data) {
-        const validateError: ValidateError = reason.response.data;
-        invalid(validateError);
-      } else {
-        error(reason);
+  try {
+    const response = await axios.post(
+      "https://api.line.me/v2/bot/message/validate/reply",
+      body,
+      {
+        headers: headers,
       }
-    });
+    );
+    success(response);
+  } catch (reason) {
+    console.log(reason);
+    if (!!reason && !!reason.response && !!reason.response.data) {
+      const validateError: ValidateError = reason.response.data;
+      invalid(validateError);
+    } else {
+      error(reason);
+    }
+  }
 };
