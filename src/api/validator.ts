@@ -3,7 +3,7 @@ import { ValidateError } from "../types";
 
 export const validator = async (
   token: string,
-  body: string,
+  body: unknown,
   success: (response: AxiosResponse) => void,
   invalid: (validateError: ValidateError) => void,
   error: (reason: any) => void
@@ -16,13 +16,16 @@ export const validator = async (
   await axios
     .post("https://api.line.me/v2/bot/message/validate/reply", body, {
       headers: headers,
+      timeout: 5000,
     })
     .then((response) => {
       success(response);
     })
     .catch((reason) => {
       console.log(reason);
-      if (!!reason && !!reason.response && !!reason.response.data) {
+      if (reason.code === "ECONNABORTED") {
+        error("Request timed out. Please try again later.");
+      } else if (!!reason && !!reason.response && !!reason.response.data) {
         const validateError: ValidateError = reason.response.data;
         invalid(validateError);
       } else {
