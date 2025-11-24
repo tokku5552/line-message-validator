@@ -23,9 +23,9 @@ export default function Home() {
 
   useEffect(() => {
     chrome.storage.local.get(["token", "body"], (items) => {
-      const data = items as FormData;
+      const data = items as Partial<FormData>;
       const body = data && data.body ? data.body : placeholder;
-      setValue("token", data.token);
+      setValue("token", data.token || "");
       setValue("body", body);
     });
   }, [setValue]);
