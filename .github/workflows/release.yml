@@ -23,7 +23,7 @@ jobs:
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: yarn install
         run: |
-          yarn install
+          yarn install --ignore-scripts
   release:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: yarn install
         run: |
-          yarn install
+          yarn install --ignore-scripts
       - uses: fregante/daily-version-action@v2
         id: daily-version
       - name: build
