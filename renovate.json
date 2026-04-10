@@ -3,6 +3,7 @@
   "extends": [
     "config:base"
   ],
+  "minimumReleaseAge": "7 days",
   "timezone": "Asia/Tokyo",
   "assignees": [
     "tokku5552"
