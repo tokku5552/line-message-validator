@@ -13,6 +13,14 @@
   },
   "packageRules": [
     {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
       "groupName": "linters",
       "extends": [
         "packages:linters"
