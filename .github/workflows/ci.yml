@@ -90,3 +90,6 @@ jobs:
           rm -rf ./extensions
           unzip extension.zip
           ls -lR ./extensions
+      - name: Check extension build
+        run: |
+          yarn check:dist
