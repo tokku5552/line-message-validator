@@ -38,4 +38,43 @@ describe("validator", () => {
       }
     );
   });
+  test("invalid", async () => {
+    expect.assertions(1);
+    const validateError = {
+      message: "The request body has 1 error(s)",
+      details: [{ message: "must be specified", property: "messages[0].text" }],
+    };
+    axiosMock.post.mockRejectedValue({ response: { data: validateError } });
+    await validator(
+      "token",
+      {},
+      () => {
+        expect(true).toBe(false);
+      },
+      (error) => {
+        expect(error).toEqual(validateError);
+      },
+      () => {
+        expect(true).toBe(false);
+      }
+    );
+  });
+  test("unknown error", async () => {
+    expect.assertions(1);
+    const reason = new Error("Network Error");
+    axiosMock.post.mockRejectedValue(reason);
+    await validator(
+      "token",
+      {},
+      () => {
+        expect(true).toBe(false);
+      },
+      () => {
+        expect(true).toBe(false);
+      },
+      (error) => {
+        expect(error).toBe(reason);
+      }
+    );
+  });
 });
