@@ -26,9 +26,10 @@ const html = readFileSync(popupPath, "utf8");
 const popupDir = dirname(popupPath);
 
 // Every asset must be referenced relatively and exist next to the popup.
-const assets = [...html.matchAll(/\s(?:src|href)="([^"]+)"/g)].map(
-  (match) => match[1]
-);
+// External URLs and in-page anchors are not build assets.
+const assets = [...html.matchAll(/\s(?:src|href)="([^"]+)"/g)]
+  .map((match) => match[1])
+  .filter((url) => !/^(?:[a-z]+:|\/\/|#)/i.test(url));
 assert.ok(assets.length > 0, "popup references no assets");
 for (const asset of assets) {
   assert.ok(

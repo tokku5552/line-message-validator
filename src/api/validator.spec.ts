@@ -78,7 +78,8 @@ describe("validator", () => {
     );
     expect(success).not.toHaveBeenCalled();
     expect(invalid).not.toHaveBeenCalled();
-  });
+    // Headroom in case a nock update waits for the real 5000ms timeout.
+  }, 10000);
 
   test("unknown error", async () => {
     lineApi().replyWithError({ code: "ECONNRESET", message: "socket hang up" });
