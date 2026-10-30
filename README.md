@@ -8,9 +8,9 @@ migrated repos from [milogos/validate-line-message-chrome-extension](https://git
 
 | runtime | version  |
 | ------- | -------- |
-| node    | v18.12.1 |
-| npm     | 8.19.2   |
-| yarn    | 1.22.19  |
+| node    | v22.23.4 |
+| npm     | 10.9.9   |
+| yarn    | 1.22.22  |
 
 ## Getting Started
 

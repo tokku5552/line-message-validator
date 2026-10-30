@@ -4,17 +4,8 @@ on:
     branches:
       - main
       - develop
-    paths:
-      - src/**
-      - extensions/**
-      - package.json
-      - yarn.lock
-      - public/**
-      - jest.config.js
-      - .eslintrc.json
-      - next.config.js
-      - tsconfig.json
-      - .github/workflows/ci.yml
+# No paths filter: these jobs are required status checks on develop, and a
+# filtered-out PR would never report them and could not be merged.
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -50,6 +41,8 @@ jobs:
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: yarn lint
         run: yarn lint
+      - name: yarn typecheck
+        run: yarn typecheck
   test:
     runs-on: ubuntu-latest
     needs: prepare
@@ -97,3 +90,6 @@ jobs:
           rm -rf ./extensions
           unzip extension.zip
           ls -lR ./extensions
+      - name: Check extension build
+        run: |
+          yarn check:dist
